@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YCCE-AI | Chat</title>
+    <meta name="description" content="Ask questions about YCCE — exams, syllabus, placements, and more. Powered by AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="chat-body">
+
+    <!-- Top bar -->
+    <header class="topbar glass">
+        <div class="topbar-left">
+            <div class="logo-small">
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="14" stroke="url(#g2)" stroke-width="2.5"/>
+                    <path d="M10 16 L14 20 L22 12" stroke="url(#g2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs><linearGradient id="g2" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#818cf8"/><stop offset="1" stop-color="#c084fc"/></linearGradient></defs>
+                </svg>
+                <span>YCCE-AI</span>
+            </div>
+        </div>
+        <div class="topbar-right">
+            <span id="user-email" class="user-email"></span>
+            <button id="logout-btn" class="btn btn-ghost">Logout</button>
+        </div>
+    </header>
+
+    <!-- Chat container -->
+    <main class="chat-container">
+        <div id="chat-messages" class="chat-messages">
+            <!-- Welcome message -->
+            <div class="message ai-message fade-in">
+                <div class="message-avatar ai-avatar">
+                    <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+                        <circle cx="16" cy="16" r="14" stroke="#818cf8" stroke-width="2"/>
+                        <path d="M10 16 L14 20 L22 12" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="message-content">
+                    <p>Welcome to <strong>YCCE-AI</strong>! I'm your intelligent assistant for all things YCCE.</p>
+                    <p>Ask me about exams, syllabus, departments, placements, NAAC, or anything else about the college. I search the latest YCCE website data to give you accurate answers.</p>
+                    <div class="suggestion-chips">
+                        <button class="chip" data-query="What are the departments at YCCE?">Departments</button>
+                        <button class="chip" data-query="Tell me about NAAC accreditation">NAAC</button>
+                        <button class="chip" data-query="What is the strategic plan of YCCE?">Strategic Plan</button>
+                        <button class="chip" data-query="Community services at YCCE">Community Services</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Input bar -->
+    <footer class="chat-input-bar glass">
+        <form id="chat-form" class="chat-form">
+            <input type="text" id="chat-input" placeholder="Ask anything about YCCE..." autocomplete="off" required>
+            <button type="submit" id="send-btn" class="btn btn-send">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </form>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>
