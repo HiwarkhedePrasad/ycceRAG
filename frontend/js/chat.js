@@ -273,7 +273,7 @@ Rules:
 
     // --- Helpers ---
     function scrollToBottom() {
-        const main = document.querySelector('.chat-container');
+        const main = document.getElementById('chat-messages');
         main.scrollTop = main.scrollHeight;
     }
 
