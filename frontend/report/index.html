@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YCCE | Sitemap Manifest 2026</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --fg: #000000;
+            --border: 4px solid #000000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            border: var(--border);
+            padding: 40px;
+        }
+
+        header {
+            border-bottom: var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            font-weight: 900;
+        }
+
+        .meta {
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Stats Grid */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-box {
+            border: var(--border);
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .stat-box.black {
+            background: var(--fg);
+            color: var(--bg);
+        }
+
+        .stat-num {
+            display: block;
+            font-size: 3rem;
+            font-weight: 900;
+            text-decoration: underline;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-bottom: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: var(--border);
+            font-size: 1.1rem;
+            outline: none;
+            font-weight: bold;
+        }
+
+        input:focus {
+            background: #f0f0f0;
+        }
+
+        /* Content Grid */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .category h2 {
+            background: var(--fg);
+            color: var(--bg);
+            display: inline-block;
+            padding: 2px 10px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+
+        li:hover {
+            background: var(--fg);
+            color: var(--bg);
+            cursor: crosshair;
+        }
+
+        footer {
+            margin-top: 50px;
+            border-top: var(--border);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 15px; border-width: 2px; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>YCCE_SITEMAP.MANIFEST</h1>
+        <div class="meta">REF: 2026-02-26 // LOC: NAGPUR_MH // STATUS: LIVE_DATA</div>
+    </header>
+
+    <section class="stats">
+        <div class="stat-box black">
+            <span class="stat-num">204</span>
+            <p>TOTAL_URLS</p>
+        </div>
+        <div class="stat-box">
+            <span class="stat-num">141</span>
+            <p>PDF_ASSETS</p>
+        </div>
+        <div class="stat-box">
+            <span class="stat-num">63</span>
+            <p>WEB_PAGES</p>
+        </div>
+    </section>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="SEARCH DIRECTORY (e.g. 'Placement', 'AI', 'Result')...">
+    </div>
+
+    <main class="data-grid">
+        <div class="category">
+            <h2>PDF Documents</h2>
+            <ul id="pdfList">
+                <li>NBA Accreditation UG-PG</li>
+                <li>Strategic Plan YCCE 2023-2028</li>
+                <li>NAAC Cycle-2 Certificate</li>
+                <li>AISHE 2022-23 Certificate</li>
+                <li>AICTE Approval Reports (1993-2026)</li>
+                <li>B.Tech Training & Placement Policy 2026</li>
+                <li>Academic Regulations 2025-26</li>
+                <li>Result Gazette ESE Even 23-24</li>
+                <li>PhD Admission Notice March 2026</li>
+                <li>Environment Audit Report 2021-22</li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <h2>Web Pages</h2>
+            <ul id="webList">
+                <li>AI & Data Science Dept</li>
+                <li>Computer Technology Dept</li>
+                <li>Training & Placement Team</li>
+                <li>YCCE TBI Foundation</li>
+                <li>Hostel & Other Facilities</li>
+                <li>International Relations Office</li>
+                <li>Central Library</li>
+                <li>Industry Institute Partnership Cell</li>
+                <li>Innovation Gallery</li>
+                <li>Research & Ph.D. Portal</li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <h2>Admin/Other</h2>
+            <ul id="otherList">
+                <li>PhD Application Form (.doc)</li>
+                <li>ICETEMS Index Portal (.php)</li>
+                <li>Internal Complaint Committee OO</li>
+                <li>Anti-Ragging Squad OO</li>
+                <li>IPR Cell Constitution</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div>GEN_SYSTEM: GEMINI_FLASH_3</div>
+        <div>&copy; 2026 YCCE_DATA_ARCHIVE</div>
+    </footer>
+</div>
+
+<script>
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        let filter = this.value.toUpperCase();
+        let lists = document.querySelectorAll('ul li');
+
+        lists.forEach(li => {
+            let text = li.textContent || li.innerText;
+            if (text.toUpperCase().indexOf(filter) > -1) {
+                li.style.display = "";
+            } else {
+                li.style.display = "none";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

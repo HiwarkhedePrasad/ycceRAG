@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS ycce_knowledge (
     chunk_index INTEGER NOT NULL,
     content     TEXT NOT NULL,
     content_hash TEXT NOT NULL,
-    embedding   VECTOR(768),           -- Gemini embedding dimension
+    embedding   VECTOR(384),           -- gte-small embedding dimension
     metadata    JSONB DEFAULT '{}',
     created_at  TIMESTAMPTZ DEFAULT NOW()
 );
@@ -31,7 +31,7 @@ CREATE INDEX IF NOT EXISTS idx_ycce_knowledge_embedding
 
 -- 5. Similarity search function (for chatbot queries)
 CREATE OR REPLACE FUNCTION match_knowledge(
-    query_embedding VECTOR(768),
+    query_embedding VECTOR(384),
     match_threshold FLOAT DEFAULT 0.7,
     match_count INT DEFAULT 5
 )

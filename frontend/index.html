@@ -6,6 +6,111 @@
     <title>YCCE-AI | Login</title>
     <meta name="description" content="YCCE-AI — Your intelligent assistant for YCCE college information.">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ── Hero Overrides ─────────────────────────── */
+        .hero-split {
+            display: flex; min-height: 100vh;
+            position: relative; z-index: 1;
+        }
+
+        .hero-left {
+            flex: 1.2; display: flex; flex-direction: column;
+            justify-content: center; padding: 60px 80px;
+            position: relative; overflow: hidden;
+        }
+
+        .hero-right {
+            flex: 0.8; display: flex; align-items: center;
+            justify-content: center; padding: 40px;
+        }
+
+        /* Giant text */
+        .hero-title {
+            font-size: clamp(60px, 10vw, 140px);
+            font-weight: 800; line-height: 0.9;
+            letter-spacing: -5px; color: #fff;
+            margin-bottom: 24px;
+        }
+
+        .hero-title .line {
+            display: block; overflow: hidden;
+        }
+
+        .hero-title .line-inner {
+            display: block;
+            transform: translateY(100%);
+        }
+
+        .hero-title .outline {
+            -webkit-text-stroke: 1.5px rgba(255,255,255,0.3);
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 16px; color: #666;
+            max-width: 420px; line-height: 1.6;
+            opacity: 0; transform: translateY(20px);
+        }
+
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 16px; border: 1px solid #222;
+            border-radius: 20px; font-size: 12px; color: #888;
+            margin-bottom: 32px; letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0;
+        }
+
+        .hero-tag .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #fff; animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%,100% { opacity: 0.3; } 50% { opacity: 1; }
+        }
+
+        /* Floating particles */
+        .particles {
+            position: absolute; inset: 0; pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute; width: 2px; height: 2px;
+            background: rgba(255,255,255,0.15); border-radius: 50%;
+        }
+
+        /* Stats row */
+        .hero-stats {
+            display: flex; gap: 40px; margin-top: 40px;
+            opacity: 0;
+        }
+
+        .stat-item h3 {
+            font-size: 28px; font-weight: 700; color: #fff;
+        }
+
+        .stat-item p {
+            font-size: 12px; color: #555;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* Auth card on the right */
+        .hero-right .auth-card {
+            width: 100%; max-width: 380px;
+            opacity: 0; transform: translateY(30px);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-split { flex-direction: column; }
+            .hero-left { padding: 40px 24px; min-height: 50vh; }
+            .hero-right { padding: 0 24px 40px; }
+            .hero-title { font-size: clamp(48px, 12vw, 80px); letter-spacing: -3px; }
+            .hero-stats { gap: 24px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -16,62 +121,155 @@
         <div class="orb orb-3"></div>
     </div>
 
-    <div class="auth-container">
-        <div class="auth-card">
-            <div class="logo">
-                <h1>YCCE<span>-AI</span></h1>
-                <p>Your intelligent college knowledge engine</p>
+    <div class="hero-split">
+        <!-- LEFT: Giant text -->
+        <div class="hero-left">
+            <div class="particles" id="particles"></div>
+
+            <div class="hero-tag">
+                <span class="dot"></span>
+                <span>AI-Powered Knowledge Engine</span>
             </div>
 
-            <!-- Tab switcher -->
-            <div class="auth-tabs">
-                <button class="tab-btn active" data-tab="login">Log In</button>
-                <button class="tab-btn" data-tab="signup">Sign Up</button>
+            <h1 class="hero-title">
+                <span class="line"><span class="line-inner">YCCE</span></span>
+                <span class="line"><span class="line-inner outline">KNOW</span></span>
+                <span class="line"><span class="line-inner">IT ALL.</span></span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Ask anything about Yeshwantrao Chavan College of Engineering.
+                Departments, faculty, exams, placements — instant answers from
+                the entire YCCE knowledge base.
+            </p>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Pages Indexed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>200+</h3>
+                    <p>PDFs Parsed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Availability</p>
+                </div>
             </div>
+        </div>
 
-            <!-- Error/Success message -->
-            <div id="auth-message" class="auth-message hidden"></div>
+        <!-- RIGHT: Auth card -->
+        <div class="hero-right">
+            <div class="auth-card">
+                <div class="logo">
+                    <h1>YCCE<span>-AI</span></h1>
+                    <p>Sign in to start asking</p>
+                </div>
 
-            <!-- Login Form -->
-            <form id="login-form">
-                <div class="form-group">
-                    <label for="login-email">Email</label>
-                    <input type="email" id="login-email" placeholder="you@example.com" required>
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Log In</button>
+                    <button class="tab-btn" data-tab="signup">Sign Up</button>
                 </div>
-                <div class="form-group">
-                    <label for="login-password">Password</label>
-                    <input type="password" id="login-password" placeholder="Enter your password" required>
-                </div>
-                <button type="submit" class="btn-primary">
-                    <span>Log In</span>
-                    <div class="btn-loader hidden"></div>
-                </button>
-            </form>
 
-            <!-- Signup Form -->
-            <form id="signup-form" class="hidden">
-                <div class="form-group">
-                    <label for="signup-email">Email</label>
-                    <input type="email" id="signup-email" placeholder="you@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="signup-password">Password</label>
-                    <input type="password" id="signup-password" placeholder="Min 6 characters" minlength="6" required>
-                </div>
-                <div class="form-group">
-                    <label for="signup-confirm">Confirm Password</label>
-                    <input type="password" id="signup-confirm" placeholder="Repeat password" minlength="6" required>
-                </div>
-                <button type="submit" class="btn-primary">
-                    <span>Create Account</span>
-                    <div class="btn-loader hidden"></div>
-                </button>
-            </form>
+                <div id="auth-message" class="auth-message hidden"></div>
+
+                <!-- Login Form -->
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <span>Log In</span>
+                        <div class="btn-loader hidden"></div>
+                    </button>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signup-form" class="hidden">
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="Min 6 characters" minlength="6" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-confirm">Confirm Password</label>
+                        <input type="password" id="signup-confirm" placeholder="Repeat password" minlength="6" required>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <span>Create Account</span>
+                        <div class="btn-loader hidden"></div>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/supabase-config.js"></script>
     <script src="js/auth.js"></script>
+
+    <script>
+        // ── GSAP Hero Animations ────────────────────
+        document.addEventListener('DOMContentLoaded', () => {
+            const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+            // Stagger the title lines
+            tl.to('.line-inner', {
+                y: 0,
+                duration: 1.2,
+                stagger: 0.15,
+            })
+            .to('.hero-tag', {
+                opacity: 1,
+                duration: 0.8,
+            }, '-=0.8')
+            .to('.hero-subtitle', {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+            }, '-=0.5')
+            .to('.hero-stats', {
+                opacity: 1,
+                duration: 0.8,
+            }, '-=0.4')
+            .to('.hero-right .auth-card', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+            }, '-=1');
+
+            // Floating particles
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.top = Math.random() * 100 + '%';
+                container.appendChild(p);
+
+                gsap.to(p, {
+                    y: -200 - Math.random() * 300,
+                    x: (Math.random() - 0.5) * 100,
+                    opacity: 0,
+                    duration: 4 + Math.random() * 6,
+                    repeat: -1,
+                    delay: Math.random() * 5,
+                    ease: 'none',
+                });
+            }
+        });
+    </script>
 </body>
 </html>
